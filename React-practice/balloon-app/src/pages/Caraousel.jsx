@@ -41,6 +41,7 @@ const Caraousel = () => {
       (prev) => (prev - 1 + CarouselItem.length) % CarouselItem.length
     );
   };
+  
   useEffect(() => {
     const timer = setInterval(() => {
       nextItem();

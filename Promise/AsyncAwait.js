@@ -4,5 +4,4 @@ async function getName() {
   return "Harsh Raghav";
 }
 const name = getName();
-s;
 console.log("End! World");

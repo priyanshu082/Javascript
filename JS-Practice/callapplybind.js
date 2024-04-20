@@ -3,7 +3,7 @@ function userInfo(age, work) {
 }
 const user1 = {
   firstName: "John",
-  lastName: "Doe",
+  lastName: "Doe",  
   age: 24,
   userInfo,
 };
@@ -18,6 +18,7 @@ console.log(user1.userInfo.call(user2, user1.age, "Software Engineer"));
 console.log(user1.userInfo.apply(user2, [user1.age, "Software Engineer"]));
 // this is how bind() method works
 console.log(user1.userInfo.bind(user2, user1.age)("Software Engineer"));
+
 // Create a pollyfill for call() method
 Function.prototype.myCall = function (context, ...args) {
   if (typeof this !== "function")

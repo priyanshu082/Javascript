@@ -3,21 +3,28 @@ import { useState } from "react";
 
 const Todo = () => {
   const [todos, setTodos] = useState([]);
+
   const [task, setTask] = useState("");
+
   const AddTodoHandler = () => {
-    setTodos([
-      ...todos,
-      {
-        id: Date.now(),
-        isDone: false,
-        task: task,
-      },
-    ]);
+    if(task){
+      setTodos([
+        ...todos,
+        {
+          id: Date.now(),
+          isDone: false,
+          task: task,
+        },
+      ]);
+    } else if(!task) alert("Input is empty!!!")
+   
     setTask("");
   };
+
   const DeleteHanlder = (todoItem) => {
     setTodos(todos.filter((data) => todoItem.id !== data.id));
   };
+
   const IsDoneHandler = (todoItem) => {
     setTodos(
       todos.map((data) => {
@@ -32,6 +39,7 @@ const Todo = () => {
       })
     );
   };
+
   const EditHandler = (todoItem) => {
     setTodos(
       todos.map((item) => {
@@ -44,7 +52,10 @@ const Todo = () => {
       })
     );
   };
+
+
   console.log(todos);
+
   return (
     <div className="w-screen h-screen flex flex-col items-center p-16">
       <div className="w-full flex justify-center gap-2">
@@ -58,6 +69,7 @@ const Todo = () => {
         <button
           className="bg-white h-16 w-20 text-black rounded-xl shadow-xl"
           onClick={AddTodoHandler}
+
         >
           Add
         </button>
